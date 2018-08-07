@@ -1,4 +1,5 @@
 /// @param object
+/// @param execute_event_flag
 ///
 /// Returns if the destruction of all pooled instances of the specified object type was successful
 
@@ -13,7 +14,9 @@ var _list = _pool[E_DS_POOL.LIST];
 
 for( var _i = ds_list_size( _list )-1; _i >= 0; _i-- )
 {
-    with( ds_list_find_value( _list, _i ) ) instance_destroy();
+    var _id = ds_list_find_value( _list, _i );
+    instance_activate_object( _id );
+    instance_destroy( _id, argument1 );
 }
 
 ds_list_clear( _list );

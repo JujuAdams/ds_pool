@@ -23,7 +23,7 @@ if ( _index == undefined ) var _instance = undefined else var _instance = ds_poo
 
 if ( _instance != undefined )
 {
-    instance_activate_object( id );
+    instance_activate_object( _instance );
     with( _instance )
     {
         x         = argument[0];
