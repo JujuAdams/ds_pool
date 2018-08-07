@@ -1,8 +1,8 @@
 {
-    "id": "a3692a0f-353d-41aa-9d1b-e976651f941e",
+    "id": "ab4cde26-e6e3-4929-8f81-b989fd593141",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "__ds_pool_config",
+    "name": "ds_pool_index_is_deleted",
     "IsCompatibility": false,
     "IsDnD": false
 }
