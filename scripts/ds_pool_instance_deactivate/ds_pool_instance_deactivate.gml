@@ -1,6 +1,6 @@
 /// @param instance/object
-/// @param [execute_cleanup_event]
-/// @param [execute_destroy_event]
+/// @param [execute_cleanup_event] <- defaults to <false>
+/// @param [execute_destroy_event] <- defaults to <false>
 ///
 /// Returns if instance (or object) deactivation was successful
 
@@ -31,7 +31,6 @@ with( argument[0] )
     if ( (argument_count > 1) && argument[1] ) event_perform( ev_cleanup, 0 );
     if ( (argument_count > 2) && argument[2] ) event_perform( ev_destroy, 0 );
     
-    show_debug_message( object_get_name( object_index ) + ":" + string( id ) + " deactivated" );
     instance_deactivate_object( id );
 }
 

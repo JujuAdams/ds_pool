@@ -2,21 +2,14 @@
 /// @param y
 /// @param layer
 /// @param object
-/// @param [max_instances]
-/// @param [reactivate_execute_create_event]
+/// @param [max_instances]                   <- defaults to infinite
+/// @param [reactivate_execute_create_event] <- defaults to <false>
 ///
 /// Returns the instance ID of a previous pooled instance, or creates a new instance if no pooled instance is available
 /// Created instances contain the <__ds_pool_index> variable
 
-if ( !ds_map_exists( global.__ds_pool_object_lookup, argument[3] ) )
-{
-    if ( argument_count > 4 ) var _pool = ds_pool_create( argument[4] ) else var _pool = ds_pool_create();
-    ds_map_add( global.__ds_pool_object_lookup, argument[3], _pool );
-}
-else
-{
-    var _pool = ds_map_find_value( global.__ds_pool_object_lookup, argument[3] );
-}
+var _pool = ds_pool_find_object_pool( argument[3] );
+if ( argument_count > 4 ) _pool[E_DS_POOL.MAX_SIZE] = argument[4];
 
 var _index = ds_pool_pop_index( _pool );
 var _instance = (_index == undefined)? undefined : ds_pool_find_value( _pool, _index );
@@ -78,7 +71,7 @@ if ( _instance != undefined )
 }
 
 var _list_size = ds_list_size( _pool[E_DS_POOL.LIST] );
-if ( argument_count > 4 ) && ( _list_size >= argument[4] ) return noone;
+if ( argument_count > 4 ) && ( _list_size >= argument[4] ) && ( argument[4] >= 0 ) return noone;
 
 _instance = instance_create_layer( argument[0], argument[1], argument[2], argument[3] );
 _instance.__ds_pool_index = _list_size;

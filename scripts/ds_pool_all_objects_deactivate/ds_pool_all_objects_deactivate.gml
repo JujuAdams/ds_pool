@@ -1,5 +1,5 @@
-/// @param [execute_cleanup_event]
-/// @param [execute_destroy_event]
+/// @param [execute_cleanup_event] <- defaults to <false>
+/// @param [execute_destroy_event] <- defaults to <false>
 ///
 /// Returns if the deactivation of all pooled instances (of any object type) resulted in no errors
 

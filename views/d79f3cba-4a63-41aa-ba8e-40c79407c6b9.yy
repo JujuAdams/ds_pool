@@ -9,7 +9,8 @@
         "2bdd9fd1-61cc-40dc-8494-494d8705a6ad",
         "557e11ec-0ede-497d-8ddf-47242f5dc550",
         "3f829862-86e5-41bb-a3fe-a8730d84a9cf",
-        "1d956c74-c545-417c-b4b7-124c76bba802"
+        "1d956c74-c545-417c-b4b7-124c76bba802",
+        "ee5cb5d5-400a-45b4-b123-1d0fff91510a"
     ],
     "filterType": "GMScript",
     "folderName": "Instances",

@@ -6,7 +6,7 @@ var _list = argument0[E_DS_POOL.LIST];
 var _map  = argument0[E_DS_POOL.MAP];
 
 var _list_size = ds_list_size( _list );
-var _array = array_create( _list_size - ds_map_size( _map ) );
+var _array = array_create( ds_pool_size_undeleted( argument0 ) );
 
 var _i = 0;
 var _j = 0;

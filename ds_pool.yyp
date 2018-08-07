@@ -63,27 +63,19 @@
             }
         },
         {
+            "Key": "2ababc12-28bc-4d61-9d1d-0ae77d589cd6",
+            "Value": {
+                "id": "12e423a9-ce35-44db-a30f-0e76d90ad0ab",
+                "resourcePath": "scripts\\ds_pool_size_deleted\\ds_pool_size_deleted.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2bdd9fd1-61cc-40dc-8494-494d8705a6ad",
             "Value": {
                 "id": "5e9c3d2b-321e-43ce-b3a6-9adf6a313da5",
                 "resourcePath": "scripts\\ds_pool_instance_deactivate\\ds_pool_instance_deactivate.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "3a5af38c-757d-41ae-98c0-5d4b09e14e6a",
-            "Value": {
-                "id": "a9a9b5af-4017-4820-a487-ac336c19ae15",
-                "resourcePath": "options\\switch\\options_switch.yy",
-                "resourceType": "GMSwitchOptions"
-            }
-        },
-        {
-            "Key": "3a5af38c-757d-44ae-98c0-5d4b09e14e6a",
-            "Value": {
-                "id": "66e83475-6ed5-4886-aa3a-1f0cba0330e0",
-                "resourcePath": "options\\ps4\\options_ps4.yy",
-                "resourceType": "GMPS4Options"
             }
         },
         {
@@ -196,6 +188,14 @@
                 "id": "9ca9176c-7cf4-443f-aa75-406e8963a66a",
                 "resourcePath": "options\\ios\\options_ios.yy",
                 "resourceType": "GMiOSOptions"
+            }
+        },
+        {
+            "Key": "88055b82-b6e8-4f9d-b337-cbcad2af91ba",
+            "Value": {
+                "id": "adc20fd0-592e-4f87-bbac-a5d5ffe4626e",
+                "resourcePath": "scripts\\ds_pool_size_max\\ds_pool_size_max.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -391,11 +391,27 @@
             }
         },
         {
+            "Key": "ee5cb5d5-400a-45b4-b123-1d0fff91510a",
+            "Value": {
+                "id": "ccd835b2-381c-4ffb-bf00-224efceaa22c",
+                "resourcePath": "scripts\\ds_pool_find_object_pool\\ds_pool_find_object_pool.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
             "Value": {
                 "id": "fa17e47f-4c19-404a-920c-d8654d3bb38f",
                 "resourcePath": "options\\mac\\options_mac.yy",
                 "resourceType": "GMMacOptions"
+            }
+        },
+        {
+            "Key": "f4dcad32-751c-4b90-9fe6-0cb07ecbe101",
+            "Value": {
+                "id": "405cb448-898b-4b53-ab29-d621410b3e0a",
+                "resourcePath": "scripts\\ds_pool_size_undeleted\\ds_pool_size_undeleted.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -413,6 +429,14 @@
                 "resourcePath": "views\\fc474898-72e4-496c-9da3-2199b31ce205.yy",
                 "resourceType": "GMFolder"
             }
+        },
+        {
+            "Key": "fcb816d5-6190-4258-8caf-e72011ea3d1e",
+            "Value": {
+                "id": "1dd93d28-2775-4da3-8221-0166871c0930",
+                "resourcePath": "scripts\\ds_pool_size_total\\ds_pool_size_total.yy",
+                "resourceType": "GMScript"
+            }
         }
     ],
     "script_order": [
@@ -420,6 +444,10 @@
         "c79ff2e5-cbe0-46e2-9629-6f3e0b9b13fe",
         "c7bca2a7-c9cc-40b9-b741-5f1d35b20056",
         "4af0e8b6-a768-40a1-8f0f-8a64a623c97b",
+        "fcb816d5-6190-4258-8caf-e72011ea3d1e",
+        "2ababc12-28bc-4d61-9d1d-0ae77d589cd6",
+        "f4dcad32-751c-4b90-9fe6-0cb07ecbe101",
+        "88055b82-b6e8-4f9d-b337-cbcad2af91ba",
         "d651a59c-c457-4b49-9f83-ab69800c18a2",
         "dcb58dd3-98f2-4ded-9257-859a59c56b6e",
         "a6a2b16a-1504-42ad-aa45-0d832d2dee43",
@@ -433,7 +461,8 @@
         "2bdd9fd1-61cc-40dc-8494-494d8705a6ad",
         "557e11ec-0ede-497d-8ddf-47242f5dc550",
         "3f829862-86e5-41bb-a3fe-a8730d84a9cf",
-        "1d956c74-c545-417c-b4b7-124c76bba802"
+        "1d956c74-c545-417c-b4b7-124c76bba802",
+        "ee5cb5d5-400a-45b4-b123-1d0fff91510a"
     ],
     "tutorial": ""
 }
