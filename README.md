@@ -1,2 +1,5 @@
 # ds_pool
-Compact pooling system library
+### @jujuadams
+Compact pooling library that, amongst other things, can be used for instance pooling.
+
+Demonstrates basic macro and enum usage.
