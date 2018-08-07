@@ -1,7 +1,7 @@
 /// @param [execute_cleanup_event]
 /// @param [execute_destroy_event]
 ///
-/// Returns if the destruction of all pooled instances (of any object type) resulted in no errors
+/// Returns if the deactivation of all pooled instances (of any object type) resulted in no errors
 
 var _success = true;
 
