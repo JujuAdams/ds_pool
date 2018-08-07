@@ -2,15 +2,15 @@
 /// @param y
 /// @param layer
 /// @param object
-/// @param [reactivate_execute_create_event]
 /// @param [max_instances]
+/// @param [reactivate_execute_create_event]
 ///
 /// Returns the instance ID of a previous pooled instance, or creates a new instance if no pooled instance is available
 /// Created instances contain the <__ds_pool_index> variable
 
 if ( !ds_map_exists( global.__ds_pool_object_lookup, argument[3] ) )
 {
-    if ( argument_count > 5 ) var _pool = ds_pool_create( argument[5] ) else var _pool = ds_pool_create();
+    if ( argument_count > 4 ) var _pool = ds_pool_create( argument[4] ) else var _pool = ds_pool_create();
     ds_map_add( global.__ds_pool_object_lookup, argument[3], _pool );
 }
 else
@@ -19,22 +19,53 @@ else
 }
 
 var _index = ds_pool_pop_index( _pool );
-var _instance = ds_pool_find_value( _pool, _index );
+var _instance = (_index == undefined)? undefined : ds_pool_find_value( _pool, _index );
 
 if ( _instance != undefined )
 {
-    instance_activate_object( id );
+    instance_activate_object( _instance );
     with( _instance )
     {
-        x         = argument[0];
-        y         = argument[1];
-        layer     = argument[2];
-        xstart    = x;
-        ystart    = y;
-        xprevious = x;
-        yprevious = y;
+        x                 = argument[0];
+        y                 = argument[1];
+        layer             = argument[2];
         
-        if ( (argument_count > 4) && argument[4] ) event_perform( ev_create, 0 );
+        #region Motion
+        xstart            = x;
+        ystart            = y;
+        xprevious         = x;
+        yprevious         = y;
+        speed             = 0;
+        direction         = 0;
+        hspeed            = 0;
+        vspeed            = 0;
+        gravity           = 0;
+        gravity_direction = 270;
+        mask_index        = object_get_mask( object_index );
+        solid             = object_get_solid( object_index );
+        #endregion
+        #region Sprite
+        sprite_index      = object_get_sprite( object_index );
+        image_index       = 0;
+        image_speed       = 1;
+        visible           = object_get_visible( object_index );
+        image_xscale      = 1;
+        image_yscale      = 1;
+        image_alpha       = 1;
+        image_blend       = c_white;
+        #endregion
+        #region Alarms, Paths, Persistence, and Timelines
+        timeline_index    = -1;
+        timeline_running  = false;
+        timeline_speed    = 1;
+        timeline_position = 0;
+        timeline_loop     = false;
+        persistent        = object_get_persistent( object_index );
+        for( var _i = 0; _i < 12; _i++ ) alarm[_i] = -1;
+        path_end();
+        #endregion
+        
+        if ( (argument_count > 5) && argument[5] ) event_perform( ev_create, 0 );
         return id;
     }
     
@@ -46,12 +77,10 @@ if ( _instance != undefined )
     return _instance;
 }
 
-if ( argument_count > 5 ) 
-{
-    if ( ds_list_size( _pool[E_DS_POOL.LIST] ) >= argument[5] ) return noone;
-}
+var _list_size = ds_list_size( _pool[E_DS_POOL.LIST] );
+if ( argument_count > 4 ) && ( _list_size >= argument[4] ) return noone;
 
 _instance = instance_create_layer( argument[0], argument[1], argument[2], argument[3] );
-_instance.__ds_pool_index = _index;
+_instance.__ds_pool_index = _list_size;
 ds_list_add( _pool[0], _instance );
 return _instance;

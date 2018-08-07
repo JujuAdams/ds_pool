@@ -1,4 +1,4 @@
-/// @param instance_or_object
+/// @param instance/object
 /// @param [execute_cleanup_event]
 /// @param [execute_destroy_event]
 ///
@@ -22,11 +22,16 @@ with( argument[0] )
         var _pool = ds_map_find_value( global.__ds_pool_object_lookup, object_index );
     }
     
-    if ( !ds_pool_delete( _pool, __ds_pool_index ) ) continue; //This instance has already been deactivated
+    if ( !ds_pool_delete( _pool, __ds_pool_index ) )
+    {
+        show_debug_message( object_get_name( object_index ) + ":" + string( id ) + " has already been deactivated" );
+        continue;
+    }
     
     if ( (argument_count > 1) && argument[1] ) event_perform( ev_cleanup, 0 );
     if ( (argument_count > 2) && argument[2] ) event_perform( ev_destroy, 0 );
     
+    show_debug_message( object_get_name( object_index ) + ":" + string( id ) + " deactivated" );
     instance_deactivate_object( id );
 }
 
