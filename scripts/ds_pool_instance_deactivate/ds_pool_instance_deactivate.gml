@@ -22,7 +22,7 @@ with( argument[0] )
         var _pool = ds_map_find_value( global.__ds_pool_object_lookup, object_index );
     }
     
-    ds_pool_delete( _pool, __ds_pool_index );
+    if ( !ds_pool_delete( _pool, __ds_pool_index ) ) continue; //This instance has already been deactivated
     
     if ( (argument_count > 1) && argument[1] ) event_perform( ev_cleanup, 0 );
     if ( (argument_count > 2) && argument[2] ) event_perform( ev_destroy, 0 );
